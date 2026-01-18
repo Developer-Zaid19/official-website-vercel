@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Difference between Iterative and Recursive function",
+    "slug": "recursive-iterative-01",
+    "date": "2026-01-17",
+    "description": "Simple explanation of iteratve and recursive functions",
+    "content": "Iterative and Recursive function is Those who call themselves infinitely until their base value becomes true, and if the base value is not given then it will continue in an infinite loop and the system will crash.",
+    "para1": "The best example of this is printing the Fibonacci series, which behaves differently on both logic systems. For example, Recursive is fast but not safe. If its base value is not given or given incorrectly, the entire system will crash. However, in the case of iteration, it may be slow but safe.",
+    "para2": ""
+  }
+]
