@@ -46,7 +46,7 @@ I explain programming and technology in easy language. Here you will find suppor
         <ul className="space-y-2 text-slate-700">
           <li>📘 Beginner-friendly programming blogs</li>
           <li>📄 Free PDF notes for practice</li>
-          <li>🎥 YouTube videos ke liye extra explanations</li>
+          <li>🎥 Extra explanations for YouTube videos</li>
         </ul>
       </section>
 
