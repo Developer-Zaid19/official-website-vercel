@@ -2,14 +2,12 @@
 
 
 :root {
-  --component: #0f172a;      /* dark blue */
-  --bg: #ffffff;       /* sky blue */
-  --text: #1f2933;
-  --sectext: #293847;
-  --secbg: #6b7280;
-  --terbg: #f8fafc;
-  --card: #ffffff;
-  --border: #e5e7eb;
+  --hadding: #00BCFF;
+  --focus: #3766d1;
+  --bg: #0A1326;
+  --text: #F1F5F9;
+  --border: #343a41;
+  --err: rgb(255, 0, 0);
 }
 
 
@@ -20,8 +18,14 @@
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
+  }
+
+  .h3logo {
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
   }
 
   nav a {

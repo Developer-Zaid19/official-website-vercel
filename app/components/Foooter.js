@@ -33,7 +33,7 @@ export default function Foooter() {
                             </ul>
                             <ul>
                                 <li>
-                                    <a href="https://www.linkedin.com/in/developer-zaid29" target="_blank" rel="noreferrer" className="hover:text-blue-500 flex items-center gap-2"><FaLinkedin /> Linkedin</a>
+                                    <a href="www.linkedin.com/in/developer-zaid29" target="_blank" rel="noreferrer" className="hover:text-blue-500 flex items-center gap-2"><FaLinkedin /> Linkedin</a>
                                 </li>
                                 {/* <li>
                                     <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-blue-600 flex items-center gap-2"><FaFacebook /> Facebook</a>

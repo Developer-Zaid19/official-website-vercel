@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "DeveloperZaid",
   description: "Simple programming blogs and free PDF notes for beginners",
+  icons: {
+    icon: "/favicon.ico"
+  },
 };
 
 export default function RootLayout({ children }) {
