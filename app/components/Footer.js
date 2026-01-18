@@ -5,7 +5,7 @@ import { FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa6";
 
 export default function Foooter() {
     return (
-        <footer className="bg-gray-950 shadow-sm z-70 border-t-5 border-(--border)">
+        <footer className="bg-(--bgt) shadow-sm z-70 border-t-5 border-(--border)">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-10">
                 <div className="flex flex-col md:flex-row md:justify-around">
                     {/* Logo + About */}
@@ -13,7 +13,7 @@ export default function Foooter() {
                         <div className="flex items-center gap-3 mb-4">
                             <span className="font-semibold text-2xl text-center w-full text-(--hadding)">&lt;{process.env.NEXT_PUBLIC_NAME}/&gt;</span>
                         </div>
-                        <p className="text-center text-white">
+                        <p className="text-center text-(--text)">
                             Learn programming in simple and practical way.
                         </p>
                     </div>
@@ -21,8 +21,8 @@ export default function Foooter() {
 
                     {/* Social Media */}
                     <div>
-                        <h3 className="text-white font-semibold mb-3">Follow Us</h3>
-                        <div className="flex gap-4 text-white text-lg">
+                        <h3 className="text-(--text) font-semibold mt-3 md:mt-0">Follow Us</h3>
+                        <div className="flex gap-4 text-(--text) text-lg">
                             <ul>
                                 <li>
                                     <a href="https://youtube.com/@Developer-zaid" target="_blank" rel="noreferrer" className="hover:text-red-600 flex items-center gap-2"><FaYoutube /> YouTube</a>
@@ -72,7 +72,7 @@ export default function Foooter() {
                 </div> */}
 
                 {/* Bottom Bar */}
-                <div className="border-t mt-10 pt-6 flex flex-col justify-center items-center text-sm text-gray-500 text-center">
+                <div className="border-t mt-10 pt-6 flex flex-col justify-center items-center text-sm text-(--text) text-center">
                     <p>© {new Date().getFullYear()} {process.env.NEXT_PUBLIC_NAME}. All rights reserved.</p>
                 </div>
             </div>
