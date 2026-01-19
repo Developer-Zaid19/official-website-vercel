@@ -26,7 +26,7 @@ export default function BlogDetail({ params }) {
   }
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-slate-950 to-slate-900 px-4 py-12">
+    <main className="min-h-screen bg-(--bg) md:bg-linear-to-br from-slate-950 to-slate-900 px-4 py-12">
       <article className="max-w-3xl mx-auto">
 
         {/* Title */}
@@ -48,7 +48,7 @@ export default function BlogDetail({ params }) {
         <div className="prose prose-slate max-w-none text-(--text)">
           {blog.content}
         </div>
-        <div className="prose prose-slate max-w-none text-(--text)">
+        <div className="prose prose-slate max-w-none my-6 md:my-0 text-(--text)">
           {blog.para1}
         </div>
         <div className="prose prose-slate max-w-none text-(--text)">

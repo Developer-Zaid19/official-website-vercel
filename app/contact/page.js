@@ -29,8 +29,8 @@ export default function ContactPage() {
           </p>
 
           <p className="mt-4 text-(--text)">
-            
-When sending an email, it would be better to write this in the subject:
+
+            When sending an email, it would be better to write this in the subject:
           </p>
 
           <ul className="list-disc list-inside mt-2 space-y-1 text-(--text)">
@@ -54,7 +54,6 @@ When sending an email, it would be better to write this in the subject:
           </p>
 
           <ul className="list-disc list-inside text-(--text) space-y-1">
-            <li>Spam ya promotion ka reply nahi milega</li>
             <li>Spam or promotions will not be replied to.</li>
             <li>
               Questions that are already explained in the blog will not receive a reply.
@@ -62,7 +61,7 @@ When sending an email, it would be better to write this in the subject:
           </ul>
 
           <p className="mt-4 text-(--text)">
-           😄 I try to answer genuine questions. Sure, it may take some time.
+            😄 I try to answer genuine questions. Sure, it may take some time.
           </p>
         </div>
 

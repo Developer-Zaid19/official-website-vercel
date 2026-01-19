@@ -33,7 +33,7 @@ export default function NotesPage() {
                 href={`/notes/${note.file}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-sm font-medium text-blue-600 hover:underline"
+                className="inline-block text-sm font-medium text-(--focus) hover:underline"
               >
                 📄 Download PDF
               </a>
