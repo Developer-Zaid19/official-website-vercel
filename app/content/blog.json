@@ -8,5 +8,15 @@
     "content": "Iterative and Recursive function is Those who call themselves infinitely until their base value becomes true, and if the base value is not given then it will continue in an infinite loop and the system will crash.",
     "para1": "The best example of this is printing the Fibonacci series, which behaves differently on both logic systems. For example, Recursive is fast but not safe. If its base value is not given or given incorrectly, the entire system will crash. However, in the case of iteration, it may be slow but safe.",
     "para2": ""
+  },
+  {
+    "id": 2,
+    "title": "Difference between HDD (Hard Disk Drive) and SSD (Solid State Drive).",
+    "slug": "hdd-vs-ssd01",
+    "date": "2026-01-20",
+    "description": "Simple explanation of SSD and HDD",
+    "content": "- In HDDs, CD means the magnetic disk spins. It has read/write heads that manage data. \n - SSDs have millions of transistors, called flip-flops, in which electrons are captured and stored..",
+    "para1": "-- Both have the same binary method for storing data. \n - HDDs have a magnetic field, 1 if present, and 0 if not. \n - SSDs have an electric charge, 1 if present, and 0 if not. \n The only difference is that one stores data in a magnetic field and the other in the form of an electric charge. ",
+    "para2": "*Why SSD is faster than HDD* \n - The main reason for this is that there is physical movement in HDD like spinning of magnetic disk, hence there is more delay, but there is no physical movement in SSD, only electrons are doing flip-flop inside."
   }
 ]
