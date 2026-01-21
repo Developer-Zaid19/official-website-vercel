@@ -28,7 +28,7 @@ export default function Foooter() {
                                     <a href="https://youtube.com/@Developer-zaid" target="_blank" rel="noreferrer" className="hover:text-red-600 flex items-center gap-2"><FaYoutube /> YouTube</a>
                                 </li>
                                 <li>
-                                    <a href="https://instagram.com/developer_zaid" target="_blank" rel="noreferrer" className="hover:text-pink-600 flex items-center gap-2"><FaInstagram /> Instagram</a>
+                                    <a href="https://instagram.com/developer_.zaid" target="_blank" rel="noreferrer" className="hover:text-pink-600 flex items-center gap-2"><FaInstagram /> Instagram</a>
                                 </li>
                             </ul>
                             <ul>
