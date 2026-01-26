@@ -1,7 +1,27 @@
+"use client"
 import Link from "next/link";
-import blogs from "./../content/blog.json";
+import React from "react";
+import { useEffect, useState} from "react";
 
-export default function BlogsPage() {
+export default function BlogsPagez() {
+
+  const [fetchedblog, setfetchedblog] = useState([])
+
+  useEffect(() => {
+    const availableblogs = async () => {
+      const res = await fetch(`https://devzaidbackend.onrender.com/api/content/blogs`, {
+        cache: "no-store",
+      });
+
+      if (!res.ok) return 
+      const data = await res.json();
+     setfetchedblog(data)
+    }
+
+availableblogs()
+  }, [])
+
+if (!fetchedblog) return;
   return (
     <main className="min-h-screen bg-(--bg) px-4 py-12">
       <section className="max-w-5xl mx-auto">
@@ -17,7 +37,7 @@ export default function BlogsPage() {
 
         {/* Blog List */}
         <div className="space-y-6">
-          {blogs.map((blog) => (
+          {fetchedblog.map((blog) => (
             <div
               key={blog.id}
               className="border border-(--border) rounded-xl p-6 bg-linear-to-br from-slate-950 to-slate-900 hover:shadow-md transition"

@@ -1,10 +1,29 @@
-import blogs from "../../content/blog.json";
+"use client";
 import Link from "next/link";
+import React from "react";
+import { useEffect, useState} from "react";
 
-export default function BlogDetail({ params }) {
-  const blog = blogs.find((b) => b.slug === params.slug);
+export default function Blogslug({params}) {
 
-  if (!blog) {
+  
+  const [fetchedblog, setfetchedblog] = useState({})
+
+  useEffect(() => {
+    const availableblogs = async () => {
+    const {slug} = await params;
+      const res = await fetch(`https://devzaidbackend.onrender.com/api/content/blogs/${slug}`, {
+        cache: "no-store",
+      });
+
+      if (!res.ok) return 
+      const data = await res.json();
+     setfetchedblog(data)
+    }
+
+availableblogs()
+  }, [params])
+
+  if (!fetchedblog) {
     return (
       <main className="min-h-screen bg-(--bg) flex items-center justify-center px-4">
         <div className="text-center">
@@ -31,13 +50,13 @@ export default function BlogDetail({ params }) {
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-(--hadding) mb-3">
-          {blog.title}
+          {fetchedblog.title}
         </h1>
 
         {/* Date */}
-        {blog.date && (
+        {fetchedblog.date && (
           <p className="text-sm text-(--focus) mb-8">
-            {blog.date}
+            {fetchedblog.date}
           </p>
         )}
 
@@ -46,13 +65,13 @@ export default function BlogDetail({ params }) {
 
         
         <div className="prose prose-slate max-w-none text-(--text)">
-          {blog.content}
+          {fetchedblog.content}
         </div>
         <div className="prose prose-slate max-w-none my-6 md:my-0 text-(--text)">
-          {blog.para1}
+          {fetchedblog.para1}
         </div>
         <div className="prose prose-slate max-w-none text-(--text)">
-          {blog.para2}
+          {fetchedblog.para2}
         </div>
         </div>
 
