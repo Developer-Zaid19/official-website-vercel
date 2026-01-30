@@ -1,19 +1,32 @@
 "use client"
 import React from "react";
+import Loader from "../components/Loader";
 import { useState, useEffect } from "react";
 
 export default function NotesPage() {
     const [fetchednotes, setfetchednotes] = useState([])
+      const [loading, setLoading] = useState(true)
+    
   
     useEffect(() => {
       const availablenotes = async () => {
-        const res = await fetch(`https://devzaidbackend.onrender.com/api/content/notes`, {
-          cache: "no-store",
-        });
-  
-        if (!res.ok) return 
-        const data = await res.json();
-       setfetchednotes(data)
+        try {
+          
+          const res = await fetch(`https://devzaidbackend.onrender.com/api/content/notes`, {
+            cache: "no-store",
+          });
+          
+          if (!res.ok){
+            setLoading(false)
+            return 
+          } 
+          const data = await res.json();
+          setfetchednotes(data)
+        }  catch (error) {
+        console.log("Error fetching notes:", error)
+      } finally {
+      setLoading(false)
+    }
       }
   
   availablenotes()
@@ -22,6 +35,10 @@ export default function NotesPage() {
   if (!fetchednotes) return;
   return (
     <main className="min-h-screen bg-(--bg) px-4 py-12">
+       {loading? <div class="min-h-[70vh] flex items-center justify-center">
+    <Loader />
+</div>
+:
       <section className="max-w-5xl mx-auto">
 
         {/* Heading */}
@@ -60,7 +77,7 @@ export default function NotesPage() {
           ))}
         </div>
 
-      </section>
+      </section> }
     </main>
   );
 }

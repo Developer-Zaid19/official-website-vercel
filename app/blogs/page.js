@@ -2,20 +2,32 @@
 import Link from "next/link";
 import React from "react";
 import { useEffect, useState} from "react";
+import Loader from "../components/Loader";
 
 export default function BlogsPagez() {
 
   const [fetchedblog, setfetchedblog] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const availableblogs = async () => {
-      const res = await fetch(`https://devzaidbackend.onrender.com/api/content/blogs`, {
-        cache: "no-store",
-      });
-
-      if (!res.ok) return 
-      const data = await res.json();
-     setfetchedblog(data)
+      try {
+        
+        const res = await fetch(`https://devzaidbackend.onrender.com/api/content/blogs`, {
+          cache: "no-store",
+        });
+        
+        if (!res.ok){
+          setLoading(false)
+          return 
+        } 
+        const data = await res.json();
+        setfetchedblog(data)
+      } catch (error) {
+        console.log("Error fetching blogs:", error)
+      } finally {
+      setLoading(false)
+    }
     }
 
 availableblogs()
@@ -24,6 +36,10 @@ availableblogs()
 if (!fetchedblog) return;
   return (
     <main className="min-h-screen bg-(--bg) px-4 py-12">
+      {loading? <div class="min-h-[70vh] flex items-center justify-center">
+    <Loader />
+</div>
+:
       <section className="max-w-5xl mx-auto">
 
         {/* Page Heading */}
@@ -36,6 +52,7 @@ if (!fetchedblog) return;
         </p>
 
         {/* Blog List */}
+        
         <div className="space-y-6">
           {fetchedblog.map((blog) => (
             <div
@@ -59,8 +76,10 @@ if (!fetchedblog) return;
             </div>
           ))}
         </div>
+        
 
       </section>
+      }
     </main>
   );
 }

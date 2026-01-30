@@ -1,23 +1,36 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import Loader from "../../components/Loader";
 import { useEffect, useState} from "react";
 
 export default function Blogslug({params}) {
 
   
   const [fetchedblog, setfetchedblog] = useState({})
+    const [loading, setLoading] = useState(true)
+  
 
   useEffect(() => {
     const availableblogs = async () => {
-    const {slug} = await params;
-      const res = await fetch(`https://devzaidbackend.onrender.com/api/content/blogs/${slug}`, {
-        cache: "no-store",
-      });
-
-      if (!res.ok) return 
-      const data = await res.json();
-     setfetchedblog(data)
+      try {
+        
+        const {slug} = await params;
+        const res = await fetch(`https://devzaidbackend.onrender.com/api/content/blogs/${slug}`, {
+          cache: "no-store",
+        });
+        
+        if (!res.ok){
+          setLoading(false)
+          return 
+        } 
+        const data = await res.json();
+        setfetchedblog(data)
+      } catch (error) {
+        console.log("Error fetching blog:", error)
+      } finally {
+      setLoading(false)
+    } 
     }
 
 availableblogs()
@@ -26,6 +39,7 @@ availableblogs()
   if (!fetchedblog) {
     return (
       <main className="min-h-screen bg-(--bg) flex items-center justify-center px-4">
+         
         <div className="text-center">
           <h1 className="text-2xl font-bold text-(--hadding) mb-2">
             Blog not found
@@ -46,6 +60,10 @@ availableblogs()
 
   return (
     <main className="min-h-screen bg-(--bg) md:bg-linear-to-br from-slate-950 to-slate-900 px-4 py-12">
+      {loading? <div class="min-h-[70vh] flex items-center justify-center">
+    <Loader />
+</div>
+:
       <article className="max-w-3xl mx-auto">
 
         {/* Title */}
@@ -85,7 +103,7 @@ availableblogs()
           </Link>
         </div>
 
-      </article>
+      </article> }
     </main>
   );
 }
