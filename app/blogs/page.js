@@ -68,7 +68,7 @@ if (!fetchedblog) return;
               </p>
 
               <Link
-                href={`/blogs/${blog.slug}`}
+                href={`/blogs/${blog.id}`}
                 className="inline-block text-sm font-medium text-(--focus) hover:underline"
               >
                 Read More →

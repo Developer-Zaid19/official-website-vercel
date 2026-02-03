@@ -35,7 +35,7 @@ export default function NotesPage() {
   if (!fetchednotes) return;
   return (
     <main className="min-h-screen bg-(--bg) px-4 py-12">
-       {loading? <div class="min-h-[70vh] flex items-center justify-center">
+       {loading? <div className="min-h-[70vh] flex items-center justify-center">
     <Loader />
 </div>
 :
@@ -66,7 +66,7 @@ export default function NotesPage() {
               </p>
 
               <a
-                href={`https://devzaidbackend.onrender.com/notes/${note.file}`}
+                href={`/notes/${note.id}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-sm font-medium text-(--focus) hover:underline"
