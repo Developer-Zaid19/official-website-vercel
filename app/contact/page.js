@@ -1,5 +1,5 @@
-"use client"
 import { useForm } from "react-hook-form";
+import process from 'process';
 
 export default function Contact() {
   const {
@@ -8,30 +8,23 @@ export default function Contact() {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const submithandle = async (formData) => {
-    const data = {
-      verifypass: process.env.VERIFYPASS,
-      type: "content",
-      name: formData.name,
-      contactinfo: formData.email,
-      message: formData.message
-    }
+const submithandle = async (formData) => {
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
 
-    const res = await fetch(`https://devzaidbackend.onrender.com/api/connectus/contactform/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+  const result = await res.json();
 
-    if (!res.ok) {
-      alert("We are trying to reply faster")
-    } else {
-      alert("I will contact you soon")
-    }
+  if (!result.success) {
+    alert("We are trying to reply faster");
+  } else {
+    alert("I will contact you soon");
   }
-
+};
 
   return (
     <main className="px-4 sm:px-8 lg:px-20 py-20 bg-(--bg) text(--text)">
