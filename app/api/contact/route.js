@@ -8,7 +8,7 @@ export async function POST(req) {
       type: "content",
     };
 
-    const res = await fetch(
+    const backendRes = await fetch(
       `https://devzaidbackend.onrender.com/api/connectus/contactform/`,
       {
         method: "POST",
@@ -19,17 +19,20 @@ export async function POST(req) {
       }
     );
 
-    if (!res.ok) {
-      return Response.json(
-        { success: false, message: "Backend Error" },
+    if (!backendRes.ok) {
+      return new Response(
+        JSON.stringify({ success: false, message: "Backend error" }),
         { status: 500 }
       );
     }
 
-    return Response.json({ success: true });
+    return new Response(
+      JSON.stringify({ success: true }),
+      { status: 200 }
+    );
   } catch (error) {
-    return Response.json(
-      { success: false, message: "Server Error" },
+    return new Response(
+      JSON.stringify({ success: false, message: "Server error" }),
       { status: 500 }
     );
   }
