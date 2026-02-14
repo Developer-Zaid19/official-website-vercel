@@ -10,7 +10,7 @@ export default function Contact() {
 
   const submithandle = async (formData) => {
     const data = {
-      verifypass: process.env.NEXT_PUBLIC_VERIFYPASS,
+      verifypass: process.env.VERIFYPASS,
       type: "content",
       name: formData.name,
       contactinfo: formData.email,
