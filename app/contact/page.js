@@ -1,5 +1,5 @@
+"use client"
 import { useForm } from "react-hook-form";
-import process from 'process';
 
 export default function Contact() {
   const {
