@@ -43,7 +43,7 @@ if (!fetchedblog) return;
       <section className="max-w-5xl mx-auto">
 
         {/* Page Heading */}
-        <h1 className="text-3xl font-bold text-(--hadding) mb-4">
+        <h1 className="text-3xl font-bold text-(--maincolor) mb-4">
           Blogs
         </h1>
 
@@ -59,7 +59,7 @@ if (!fetchedblog) return;
               key={blog.id}
               className="border border-(--border) rounded-xl p-6 bg-linear-to-br from-slate-950 to-slate-900 hover:shadow-md transition"
             >
-              <h2 className="text-xl font-semibold text-(--hadding) mb-2">
+              <h2 className="text-xl font-semibold text-(--maincolor) mb-2">
                 {blog.title}
               </h2>
 

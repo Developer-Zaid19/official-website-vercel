@@ -42,7 +42,7 @@ export default function NotesPage() {
       <section className="max-w-5xl mx-auto">
 
         {/* Heading */}
-        <h1 className="text-3xl font-bold text-(--hadding) mb-4">
+        <h1 className="text-3xl font-bold text-(--maincolor) mb-4">
           Notes and CheatSheats
         </h1>
 
@@ -57,7 +57,7 @@ export default function NotesPage() {
               key={note.id}
               className="border rounded-xl p-5 hover:shadow-md transition bg-linear-to-br from-slate-950 to-slate-900 border-(--border)"
             >
-              <h3 className="text-lg font-semibold text-(--hadding) mb-1">
+              <h3 className="text-lg font-semibold text-(--maincolor) mb-1">
                 {note.title}
               </h3>
 

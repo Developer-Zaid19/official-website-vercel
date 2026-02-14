@@ -41,7 +41,7 @@ availableblogs()
       <main className="min-h-screen bg-(--bg) flex items-center justify-center px-4">
          
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-(--hadding) mb-2">
+          <h1 className="text-2xl font-bold text-(--maincolor) mb-2">
             Blog not found
           </h1>
           <p className="text-(--err) mb-4">
@@ -60,14 +60,14 @@ availableblogs()
 
   return (
     <main className="min-h-screen bg-(--bg) md:bg-linear-to-br from-slate-950 to-slate-900 px-4 py-12">
-      {loading? <div class="min-h-[70vh] flex items-center justify-center">
+      {loading? <div className="min-h-[70vh] flex items-center justify-center">
     <Loader />
 </div>
 :
       <article className="max-w-3xl mx-auto">
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-(--hadding) mb-3">
+        <h1 className="text-3xl md:text-4xl font-bold text-(--maincolor) mb-3">
           {fetchedblog.title}
         </h1>
 

@@ -32,7 +32,7 @@ export default function HomePage() {
 
         <h1 className="text-4xl md:text-5xl font-bold leading-tight text-(--text)">
           Learn Programming <br />
-          <span className="text-(--hadding) " ref={el}>
+          <span className="text-(--maincolor) " ref={el}>
 
           </span>
         </h1>
@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="mt-10 flex justify-center gap-4 flex-wrap">
           <Link
             href="/blogs"
-            className="bg-(--hadding) text-slate-950 px-6 py-3 rounded-lg font-semibold hover:bg-sky-300 transition"
+            className="bg-(--maincolor) text-slate-950 px-6 py-3 rounded-lg font-semibold hover:bg-sky-300 transition"
           >
             Read Blogs
           </Link>
@@ -64,7 +64,7 @@ export default function HomePage() {
 
 
         <section className="mt-14 px-auto border-2 border-(--border) rounded-2xl md:w-100 bg-linear-to-br from-slate-950 to-slate-900 text-slate-100">
-          <h2 className="text-2xl font-semibold text-(--hadding) w-full text-center mb-4 p-2">
+          <h2 className="text-2xl font-semibold text-(--maincolor) w-full text-center mb-4 p-2">
             What you will find here?
           </h2>
 
@@ -75,7 +75,7 @@ export default function HomePage() {
           </ul>
         </section>
         <section className="mt-14 px-auto border-2 border-(--border) rounded-2xl md:w-100 bg-linear-to-br from-slate-950 to-slate-900 text-slate-100">
-          <h2 className="text-2xl font-semibold text-(--hadding) w-full text-center mb-4 p-2">
+          <h2 className="text-2xl font-semibold text-(--maincolor) w-full text-center mb-4 p-2">
 
             What happened in these?
           </h2>

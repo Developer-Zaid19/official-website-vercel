@@ -1,7 +1,7 @@
 import React from "react";
  
 
-import { FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa6";
+import { FaInstagram, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa6";
 
 export default function Foooter() {
     return (
@@ -11,7 +11,7 @@ export default function Foooter() {
                     {/* Logo + About */}
                     <div>
                         <div className="flex items-center gap-3 mb-4">
-                            <span className="font-semibold text-2xl text-center w-full text-(--hadding)">&lt;{process.env.NEXT_PUBLIC_NAME}/&gt;</span>
+                            <span className="font-semibold text-2xl text-center w-full text-(--maincolor)">&lt;{process.env.NEXT_PUBLIC_NAME}/&gt;</span>
                         </div>
                         <p className="text-center text-(--text)">
                             Learn programming in simple and practical way.
@@ -28,16 +28,16 @@ export default function Foooter() {
                                     <a href="https://youtube.com/@Developer-zaid" target="_blank" rel="noreferrer" className="hover:text-red-600 flex items-center gap-2"><FaYoutube /> YouTube</a>
                                 </li>
                                 <li>
-                                    <a href=" https://instagram.com/lucknowii_developer" target="_blank" rel="noreferrer" className="hover:text-pink-600 flex items-center gap-2"><FaInstagram /> Instagram</a>
+                                    <a href=" https://instagram.com/dvlprzaid" target="_blank" rel="noreferrer" className="hover:text-pink-600 flex items-center gap-2"><FaInstagram /> Instagram</a>
                                 </li>
                             </ul>
                             <ul>
                                 <li>
                                     <a href="https://www.linkedin.com/in/developer-zaid29" target="_blank" rel="noreferrer" className="hover:text-blue-500 flex items-center gap-2"><FaLinkedin /> Linkedin</a>
                                 </li>
-                                {/* <li>
-                                    <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-blue-600 flex items-center gap-2"><FaFacebook /> Facebook</a>
-                                </li> */}
+                                <li>
+                                    <a href="https://github.com/Developer-Zaid19" target="_blank" rel="noreferrer" className="hover:text-gray-600 flex items-center gap-2"><FaGithub /> Github</a>
+                                </li>
                             </ul>
 
                         </div>

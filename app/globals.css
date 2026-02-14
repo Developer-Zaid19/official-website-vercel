@@ -2,13 +2,14 @@
 
 
 :root {
-  --hadding: #00BCFF;
+  --maincolor: #00BCFF;
   --focus: #3766d1;
   --bg: #0A1326;
   --text: #F1F5F9;
   --border: #343a41;
   --err: rgb(255, 0, 0);
   --bgt: rgb(20, 20, 20);
+  --example: rgb(0, 188, 255);
 }
 
 

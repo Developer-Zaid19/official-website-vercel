@@ -12,7 +12,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-6 text-(--hadding)"
+          className="text-4xl md:text-5xl font-bold mb-6 text-(--maincolor)"
         >
           About{" "}
           <span className="text-(--text)">
@@ -37,7 +37,7 @@ export default function AboutPage() {
       {/* MISSION */}
       <section className="py-16 text-center">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-semibold mb-4 text-(--hadding)">My Mission</h2>
+          <h2 className="text-3xl font-semibold mb-4 text-(--maincolor)">My Mission</h2>
           <p className="text-(--text) text-lg leading-relaxed">
             My mission is to break down complex programming concepts into easy language—so that beginners feel confident instead of confused.
           </p>
@@ -48,7 +48,7 @@ export default function AboutPage() {
 
       {/* STORY */}
       <section className="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-(--hadding)">My Story</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-(--maincolor)">My Story</h2>
 
         <p className="text-(--text) text-lg leading-relaxed mb-6">
           {process.env.NEXT_PUBLIC_NAME} was started in 2025, when I realized that learning resources for beginners were either too complex or completely surface-level.
@@ -65,7 +65,7 @@ export default function AboutPage() {
       {/* STATS */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-10 text-(--hadding)">Platform Growth</h2>
+          <h2 className="text-3xl font-semibold mb-10 text-(--maincolor)">Platform Growth</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold text-(--text)">
                   {item.number}
                 </h3>
-                <p className="text-(--hadding) mt-2">{item.label}</p>
+                <p className="text-(--maincolor) mt-2">{item.label}</p>
               </div>
             ))}
           </div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl font-semibold mb-6 text-(--hadding)">Join the Journey</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-(--maincolor)">Join the Journey</h2>
 
         <p className="text-(--text) text-lg max-w-2xl mx-auto mb-8">
           If you&apos;re on a learning journey,

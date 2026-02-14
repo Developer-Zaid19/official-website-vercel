@@ -1,71 +1,124 @@
-export default function ContactPage() {
+"use client"
+import { useForm } from "react-hook-form";
+
+export default function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
+
+  const submithandle = async (formData) => {
+    const data = {
+      verifypass: process.env.NEXT_PUBLIC_VERIFYPASS,
+      type: "content",
+      name: formData.name,
+      contactinfo: formData.email,
+      message: formData.message
+    }
+
+    const res = await fetch(`https://devzaidbackend.onrender.com/api/connectus/contactform/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) {
+      alert("We are trying to reply faster")
+    } else {
+      alert("I will contact you soon")
+    }
+  }
+
+
   return (
-    <main className="min-h-screen bg-(--bg) px-4 py-12">
-      <section className="max-w-3xl mx-auto">
+    <main className="px-4 sm:px-8 lg:px-20 py-20 bg-(--bg) text(--text)">
 
-        {/* Heading */}
-        <h1 className="text-3xl font-bold text-(--hadding) mb-4">
-          Contact Me
-        </h1>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        <p className="text-(--text) mb-8 leading-relaxed">
-          If you have any doubts about notes, blogs, or videos, or want to give suggestions, you can email us directly.
-        </p>
+        {/* Left Side - Info */}
+        <div className="border-2 border-(--border) rounded-2xl p-8 sm:p-12">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center lg:text-left text-(--text)">
+            Contact <span className="text-(--maincolor)">Me</span>
+          </h1>
 
-        {/* Email Card */}
-        <div className="border border-(--border) bg-linear-to-br from-slate-950 to-slate-900 rounded-xl p-6 mb-10">
-          <h2 className="text-xl font-semibold text-(--text) mb-2">
-            Email
-          </h2>
+          <p className="text-center lg:text-left text-sm sm:text-base text-(--text)/80 leading-relaxed ">
 
-          <p className="text-(--text)">
-            📧{" "}
-            <a
+            If you need <span className="font-semibold text-(--maincolor) text-2xl">Help</span> in coding or website, app development, Data Management Help, or any other tech project, Email <span className="font-semibold text-(--maincolor) text-2xl">Me</span> on <a
               href="mailto:developerzaid26@gmail.com"
-              className="text-blue-600 underline hover:opacity-80"
+              className="text-blue-500 font-semibold text-xl
+               underline hover:opacity-80"
             >
               developerzaid26@gmail.com
-            </a>
-          </p>
-
-          <p className="mt-4 text-(--text)">
-
-            When sending an email, it would be better to write this in the subject:
-          </p>
-
-          <ul className="list-disc list-inside mt-2 space-y-1 text-(--text)">
-            <li>Blog related doubt</li>
-            <li>Notes suggestion</li>
-            <li>Video topic request</li>
-          </ul>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-black/10 mb-10"></div>
-
-        {/* Guidelines */}
-        <div className="bg-linear-to-br from-slate-950 to-slate-900 rounded-xl p-6">
-          <h2 className="text-xl font-semibold text-(--hadding) mb-3">
-            Before you message
-          </h2>
-
-          <p className="text-(--text) mb-3">
-            Please keep these things in mind:
-          </p>
-
-          <ul className="list-disc list-inside text-(--text) space-y-1">
-            <li>Spam or promotions will not be replied to.</li>
-            <li>
-              Questions that are already explained in the blog will not receive a reply.
-            </li>
-          </ul>
-
-          <p className="mt-4 text-(--text)">
-            😄 I try to answer genuine questions. Sure, it may take some time.
+            </a> or Fill this <span className="font-semibold text-(--maincolor) text-2xl">Form</span> And I will <span className="font-semibold text-(--maincolor) text-2xl">Contact</span> You. I build scalable, fast, and modern solutions that solve real-world <span className="font-semibold text-(--maincolor) text-2xl">Problems</span>.
           </p>
         </div>
 
-      </section>
+        {/* Right Side - Form */}
+        <div className="border-2 border-(--border) rounded-2xl p-5 py-8 sm:p-10">
+          <form className="space-y-6" onSubmit={handleSubmit(submithandle)}>
+
+            <input
+              {...register("name", {
+                required: "Name is required",
+                minLength: { value: 3, message: "Min 3 characters" },
+                maxLength: { value: 15, message: "Max 15 characters" },
+              })}
+              type="text"
+              placeholder="Name"
+              className="w-full bg-transparent border border-white/20 rounded-xl px-5 py-3
+              outline-none focus:border-(--maincolor) transition placeholder:text-gray-500 text-(--text)"
+            />
+            {errors.name && (
+              <p className="text-red-500 font-semibold">{errors.name.message}</p>
+            )}
+
+            <input
+              {...register("email", {
+                required: "Email is required",
+                minLength: { value: 5, message: "Min 5 characters" },
+                maxLength: { value: 50, message: "Max 50 characters" },
+              })}
+              type="email"
+              placeholder="Email or Phno."
+              className="w-full bg-transparent border border-white/20 rounded-xl px-5 py-3
+              outline-none focus:border-(--maincolor) transition placeholder:text-gray-500 text-(--text)"
+            />
+            {errors.email && (
+              <p className="text-red-500 font-semibold">{errors.email.message}</p>
+            )}
+
+            <textarea
+              {...register("message", {
+                required: "Your Message is Helpful for us",
+                minLength: { value: 5, message: "Min 5 characters" },
+                maxLength: { value: 500, message: "Max 500 characters" },
+              })}
+              rows="5"
+              placeholder="Your Message Here"
+              className="w-full bg-transparent border border-white/20 rounded-xl px-5 py-3
+              outline-none focus:border-(--maincolor) transition placeholder:text-gray-500 text-(--text)"
+            ></textarea>
+            {errors.message && (
+              <p className="text-red-500 font-semibold">{errors.message.message}</p>
+            )}
+            <button
+              disabled={isSubmitting}
+              type="submit"
+              className="w-full py-3 rounded-xl font-bold
+              bg-(--maincolor) text-[#022c22]
+              hover:shadow-[0_0_30px_rgba(0,188,255,0.6)]
+              transition-all duration-300"
+            >
+              Send Message
+            </button>
+
+          </form>
+        </div>
+
+      </div>
     </main>
   );
 }
