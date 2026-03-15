@@ -1,37 +1,101 @@
 @import "tailwindcss";
 
-
 :root {
   --maincolor: #00BCFF;
+  --mainsoft: #38d4ff;
+  --maindark: #0090cc;
+  --mainglow: rgba(0, 188, 255, 0.2);
+  --mainglow-strong: rgba(0, 188, 255, 0.45);
+
+  --bg: #080e1a;
+  --bgt: #0d1525;
+  --bgcard: rgba(0, 188, 255, 0.04);
+
+  --text: #e2eeff;
+  --text-muted: #6b83a8;
+
+  --border: rgba(0, 188, 255, 0.12);
+  --border-hover: rgba(0, 188, 255, 0.4);
+
   --focus: #3766d1;
-  --bg: #0A1326;
-  --text: #F1F5F9;
-  --border: #343a41;
-  --err: rgb(255, 0, 0);
-  --bgt: rgb(20, 20, 20);
-  --example: rgb(0, 188, 255);
+  --err: rgb(255, 80, 80);
 }
 
+/* ── Smooth scroll ── */
+html {
+  scroll-behavior: smooth;
+}
 
+/* ── Base ── */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
 
-/* =========================
-   SMALL SCREEN
-========================= */
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--maindark); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--maincolor); }
+
+/* ── Utilities ── */
+.glass {
+  background: rgba(0, 188, 255, 0.04);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.glass:hover {
+  border-color: var(--border-hover);
+  background: rgba(0, 188, 255, 0.07);
+}
+.glow-border {
+  border-color: var(--maincolor) !important;
+  box-shadow: 0 0 20px var(--mainglow);
+}
+.gradient-text {
+  background: linear-gradient(135deg, var(--mainsoft), var(--maincolor), var(--maindark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glow-text {
+  text-shadow: 0 0 20px var(--mainglow-strong);
+}
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,188,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,188,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-hover), transparent);
+}
+.sec-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--maincolor);
+  font-weight: 600;
+}
+
+/* ── Float animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.float { animation: float 4s ease-in-out infinite; }
+
+/* ── Pulse glow ── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px var(--mainglow); }
+  50% { box-shadow: 0 0 50px var(--mainglow-strong); }
+}
+.pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+/* ── Small screen nav fix ── */
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .h3logo {
-    width: 100%;
-    text-align: center;
-    font-size: 28px;
-  }
-
-  nav a {
-    margin-left: 0;
-    margin-right: 15px;
-  }
+  .h3logo { font-size: 22px; }
 }
