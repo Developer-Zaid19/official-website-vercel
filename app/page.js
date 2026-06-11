@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Typed from "typed.js";
+import { notes, blogs } from "./components/homeData"
 
 const features = [
   {
@@ -235,6 +236,236 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ════════════════════════════
+          blog section
+      ════════════════════════════ */}
+      <section id="blogs" className="py-24 px-4 sm:px-6 lg:px-16 bg-(--bgsection)">
+        <div className="max-w-6xl mx-auto">
+
+          {/* ── Header ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
+          >
+            <div>
+              <p className="sec-label mb-3">From My Desk</p>
+              <h2 className="text-3xl sm:text-4xl font-bold">
+                Latest <span className="gradient-text">Blogs</span>
+              </h2>
+              <p className="text-(--text-muted) text-sm mt-3 max-w-md leading-relaxed">
+                Simple, beginner-friendly articles about programming and tech — without the unnecessary theory.
+              </p>
+            </div>
+
+            <a
+              href={"/blogs"}
+              className="-0 px-6 py-2.5 rounded-xl border border-(--border) text-(--text-muted) text-sm font-medium hover:border-(--maincolor) hover:text-(--maincolor) hover:bg-[rgba(34,197,94,0.05)] transition-all duration-300 self-start sm:self-auto"
+            >
+              View All Blogs →
+            </a>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogs.map((blog, i) => (
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="glass rounded-2xl p-6 flex flex-col justify-between group hover:glow-border transition-all duration-300"
+              >
+                {/* Top */}
+                <div>
+                  {/* Blog number badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[rgba(34,197,94,0.1)] text-(--mainsoft) tracking-widest">
+                      BLOG #{String(i + 1).padStart(2, "0")}
+                    </span>
+                    {blog.date && (
+                      <span className="text-xs text-(--text-muted)">{blog.date}</span>
+                    )}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-(--text) mb-3 leading-snug group-hover:text-(--maincolor) transition-colors duration-300">
+                    {blog.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-(--text-muted) leading-relaxed line-clamp-3">
+                    {blog.description}
+                  </p>
+                </div>
+
+                {/* Bottom */}
+                <div className="mt-6 pt-4 border-t border-(--border) flex items-center justify-between">
+                  <span className="text-xs text-(--text-muted)">📖 Read article</span>
+                  <a
+                    href={`./blogs/${blog.url}`}
+                    // href={`./blogs/1234.pdf`}
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-(--maincolor) hover:glow-text hover:underline transition-all duration-300 flex items-center gap-1"
+                  >
+                    Read More
+                    <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">→</span>
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* ════════════════════════════
+          notes section
+      ════════════════════════════ */}
+      <section id="learn" className="py-24 px-4 sm:px-6 lg:px-16 bg-(--bgsection)">
+        <div className="max-w-6xl mx-auto">
+
+          {/* ── Header ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
+          >
+            <div>
+              <p className="sec-label mb-3">From My Hand</p>
+              <h2 className="text-3xl sm:text-4xl font-bold">
+                Notes & <span className="gradient-text">CheatSheats</span>
+              </h2>
+              <p className="text-(--text-muted) text-sm mt-3 max-w-md leading-relaxed">
+                Here, My Written Work that show my ability.
+              </p>
+            </div>
+
+            <a
+              href={"/notes"}
+              className="-0 px-6 py-2.5 rounded-xl border border-(--border) text-(--text-muted) text-sm font-medium hover:border-(--maincolor) hover:text-(--maincolor) hover:bg-[rgba(34,197,94,0.05)] transition-all duration-300 self-start sm:self-auto"
+            >
+              View All PDFs →
+            </a>
+          </motion.div>
+
+
+          {/* card */}
+
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {notes.map((note, i) => (
+              <motion.a
+                key={note.id}
+                href={`/notes/pdf/${note.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="group relative"
+              >
+                {/* Paper Card */}
+                <div
+                  className="
+                    relative
+                    h-[250px]
+                    px-6
+                    py-7
+                    glass
+                    rounded-xl
+                    overflow-hidden
+                    hover:glow-border
+                    transition-all
+                    duration-300
+                "
+                  style={{
+                    clipPath:
+                      "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)",
+                  }}
+                >
+                  {/* Folded Corner */}
+                  <div
+                    className="
+                        absolute
+                        top-0
+                        right-0
+                        w-9
+                        h-9
+                        bg-[rgba(255,255,255,0.08)]
+                    "
+                    style={{
+                      clipPath: "polygon(0 0,100% 100%,100% 0)",
+                    }}
+                  />
+
+                  {/* Icon */}
+                  <div className="flex justify-center mt-3 mb-5">
+                    <img
+                      src={note.image}
+                      alt={note.title}
+                      className="rounded-full bg-white md:w-20 md:h-20 size-15 object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className=" text-center text-sm font-bold text-(--text) group-hover:text-(--maincolor) transition-colors"
+                  >
+                    {note.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p
+                    className="
+                        mt-3
+                        text-center
+                        text-sm
+                        text-(--text-muted)
+                        line-clamp-3
+                    "
+                  >
+                    {note.description}
+                  </p>
+
+                  {/* Bottom */}
+                  <div className="absolute bottom-5 left-0 right-0">
+                    <p
+                      className=" text-center text-xs uppercase tracking-widest text-(--mainsoft) "
+                    >
+                      View PDF →
+                    </p>
+                  </div>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <a
+              href="/notes"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3.5 rounded-xl bg-(--maincolor) text-(--bgcolor) font-bold text-sm hover:shadow-[0_0_30px_var(--mainglow-strong)] hover:scale-105 transition-all duration-300"
+            >
+              See All PDFs →
+            </a>
+          </motion.div>
+
+        </div>
+      </section>
 
       {/* ════════════════════════════
           CTA BOTTOM
