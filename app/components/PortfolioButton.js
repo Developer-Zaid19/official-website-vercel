@@ -25,7 +25,7 @@ export default function PortfolioButton() {
 
       {/* Button */}
       <motion.a
-        href="https://zaidkhan-dev.vercel.app"
+        href="https://developerzaid.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHovered(true)}

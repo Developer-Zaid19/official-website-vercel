@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa6";
 const contactInfo = [
   { icon: "📧", label: "Email",    val: "developerzaid26@gmail.com", href: "mailto:developerzaid26@gmail.com" },
   { icon: "📍", label: "Location", val: "Lucknow, India",            href: null },
-  { icon: "💼", label: "Portfolio",val: "zaidkhan-dev.vercel.app",   href: "https://zaidkhan-dev.vercel.app" },
+  { icon: "💼", label: "Portfolio",val: "developerzaid.vercel.app",   href: "https://developerzaid.vercel.app" },
 ];
 
 const socials = [
