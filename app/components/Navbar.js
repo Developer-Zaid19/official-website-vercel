@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { name: "Home",    href: "/" },
@@ -14,13 +15,19 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname  = usePathname();
+  const { theme, setTheme } = useTheme();
   const [isOpen,   setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   // Close mobile menu on route change
@@ -64,14 +71,25 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-(--maincolor) p-2 rounded-lg hover:bg-[rgba(0,188,255,0.08)] transition"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="text-(--maincolor) p-2 rounded-full border border-(--border) bg-[rgba(0,188,255,0.06)] hover:bg-[rgba(0,188,255,0.12)] transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {mounted && theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden text-(--maincolor) p-2 rounded-lg hover:bg-[rgba(0,188,255,0.08)] transition"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

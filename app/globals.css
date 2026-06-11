@@ -2,6 +2,28 @@
 
 :root {
   --maincolor: #00BCFF;
+  --mainsoft: #5ad9ff;
+  --maindark: #0090cc;
+  --mainglow: rgba(0, 188, 255, 0.12);
+  --mainglow-strong: rgba(0, 188, 255, 0.25);
+
+  --bg: #f8fbff;
+  --bgt: #eef6ff;
+  --bgcard: rgba(0, 188, 255, 0.06);
+
+  --text: #0f172a;
+  --text-muted: #64748b;
+
+  --border: rgba(0, 144, 204, 0.12);
+  --border-hover: rgba(0, 144, 204, 0.28);
+
+  --focus: #3766d1;
+  --err: rgb(220, 38, 38);
+}
+
+
+html.dark {
+  --maincolor: #00BCFF;
   --mainsoft: #38d4ff;
   --maindark: #0090cc;
   --mainglow: rgba(0, 188, 255, 0.2);

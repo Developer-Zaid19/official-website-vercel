@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import PortfolioButton from "./components/PortfolioButton";
@@ -22,27 +23,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="D4dDQnIFcDzXsVY9pEKOz_VhwQdmqeDqZsZzYha5sKk" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-(--bg) text-(--text) overflow-x-hidden`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {/* Ambient glow */}
+          <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            <div className="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(0,188,255,0.05)_0%,transparent_70%)]" />
+            <div className="absolute bottom-[-150px] right-[-150px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(0,188,255,0.04)_0%,transparent_70%)]" />
+          </div>
 
-        {/* Ambient glow */}
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(0,188,255,0.05)_0%,transparent_70%)]" />
-          <div className="absolute bottom-[-150px] right-[-150px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(0,188,255,0.04)_0%,transparent_70%)]" />
-        </div>
-
-        <div className="relative z-10 min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <PortfolioButton />
-        </div>
-
+          <div className="relative z-10 min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <PortfolioButton />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
